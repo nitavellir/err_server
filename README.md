@@ -35,3 +35,7 @@
 503	http.StatusServiceUnavailable
 504	http.StatusGatewayTimeout
 </pre>
+
+* ServeHTTPのcallのtimeoutは、Main関数の第1引数の数値
+  * ナノ秒単位
+  * 任意指定

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"errserv/errserv"
+	"err_server/errserv"
 )
 
 func main() {

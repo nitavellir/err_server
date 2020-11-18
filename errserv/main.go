@@ -46,7 +46,7 @@ func Main(args ...interface{}) {
 	bind := func(handler PortHandler, timeOut time.Duration) {
 		port := handler.Port()
 		if timeOut > 0 {
-			http.Handle(fmt.Sprintf("/%d", port), http.TimeoutHandler(handler, timeOut, "TIMEOUT!!!!!!\n"))
+			http.Handle(fmt.Sprintf("/%d", port), http.TimeoutHandler(handler, timeOut, fmt.Sprintf("[REQUEST :%d] ServeHTTP TIMEOUT\n", port)))
 		} else {
 			http.Handle(fmt.Sprintf("/%d", port), handler)
 		}
@@ -59,7 +59,7 @@ func Main(args ...interface{}) {
 		}
 	}
 
-	if !opt.IsEnableErrorServ() && !opt.IsEnableTimeoutServ() {
+	if !opt.IsEnableErrorServ() {
 		log.Fatal("Nothing to do")
 	}
 
